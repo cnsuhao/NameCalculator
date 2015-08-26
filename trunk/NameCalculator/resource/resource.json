@@ -1,25 +1,45 @@
 {
 	"resources": [
 		{
-			"name": "bgImage",
+			"name": "1",
 			"type": "image",
-			"url": "assets/bg.jpg"
+			"url": "assets/1.jpg"
 		},
 		{
-			"name": "egretIcon",
+			"name": "2",
 			"type": "image",
-			"url": "assets/egret_icon.png"
+			"url": "assets/2.jpg"
 		},
 		{
-			"name": "description",
-			"type": "json",
-			"url": "config/description.json"
+			"name": "3",
+			"type": "image",
+			"url": "assets/3.jpg"
+		},
+		{
+			"name": "4",
+			"type": "image",
+			"url": "assets/4.jpg"
+		},
+		{
+			"name": "5",
+			"type": "image",
+			"url": "assets/5.jpg"
+		},
+		{
+			"name": "6",
+			"type": "image",
+			"url": "assets/6.jpg"
+		},
+		{
+			"name": "7",
+			"type": "image",
+			"url": "assets/7.jpg"
 		}
 	],
 	"groups": [
 		{
 			"name": "preload",
-			"keys": "bgImage,egretIcon"
+			"keys": "1,2,3,4,5,6,7"
 		}
 	]
 }

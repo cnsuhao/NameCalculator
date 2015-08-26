@@ -30,14 +30,15 @@ class ResultPanel extends egret.Sprite{
         var texture:egret.Texture = RES.getRes(this.getInfoByResult(result));
         if(this.icon == null) {
             this.icon = new egret.Bitmap();
-            this.icon.anchorX = this.icon.anchorY = 0.5;
+            this.icon.anchorX = this.icon.anchorY = 0;
             this.addChild(this.icon);
-            this.icon.x = 480 / 2;
+            /*this.icon.x = 480 / 2;
             this.icon.y = 800 / 2 - 60;
             this.icon.scaleX = 0.55;
-            this.icon.scaleY = 0.55;
+            this.icon.scaleY = 0.55;*/
         }
         this.icon.texture = texture;
+        this.x = (this.width - this.icon.width) * 0.5;
     }
     
     private getInfoByResult(result:number): string
@@ -47,27 +48,37 @@ class ResultPanel extends egret.Sprite{
         {
             case 1:
             {
-                r = "egretIcon";
+                r = "2";
                 break;
             }
             case 2:
             {
-                r = "egretIcon";
+                r = "3";
                 break;
             }
             case 3:
             {
-                r = "egretIcon";
+                r = "4";
                 break;
             }
             case 4:
             {
-                r = "egretIcon";
+                r = "5";
+                break;
+            }
+            case 5:
+            {
+                r = "6";
+                break;
+            }
+            case 6:
+            {
+                r = "7";
                 break;
             }
             default:
             {
-                r = "";
+                r = "2";
                 break;
             }
         }
