@@ -106,14 +106,14 @@ class Main extends egret.DisplayObjectContainer {
         
         var test: egret.TextField = new egret.TextField();
         test.border = true;
-        test.borderColor = 0xfff000;
-        test.x = stageW * 0.5 - 50;
+        test.borderColor = 0xff0000;
+        test.x = stageW * 0.5 - 60;
         test.y = stageH * 0.5 + 220;
         test.touchEnabled = true;
-        test.text = "开始测试";
+        //test.text = "开始测试";
         test.textColor = 0x222222;
-        test.width = 100;
-        test.height = 30;
+        test.width = 125;
+        test.height = 45;
         test.textAlign = egret.HorizontalAlign.CENTER;
         test.verticalAlign = egret.VerticalAlign.MIDDLE;
         test.size = 20;
