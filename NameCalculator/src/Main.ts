@@ -85,32 +85,33 @@ class Main extends egret.DisplayObjectContainer {
         //sky.width = stageW;
         //sky.height = stageH;
 
-        var txtTip: egret.TextField = new egret.TextField();
+        /*var txtTip: egret.TextField = new egret.TextField();
         txtTip.text = "请输入你的名字：";
         txtTip.x = 10;
         txtTip.y = stageH * 0.5 + 50;
         txtTip.textColor = 0xffffff;
         txtTip.textAlign = "left";
         txtTip.size = 20;
-        this.addChild(txtTip);
+        this.addChild(txtTip);*/
         
         this.txtName = new egret.TextField();
         this.txtName.type = egret.TextFieldType.INPUT;
         this.txtName.border = true;
         this.txtName.borderColor = 0xfff000;
         this.txtName.x = stageW * 0.5 - 50;
-        this.txtName.y = stageH * 0.5 + 50;
+        this.txtName.y = stageH * 0.5 + 100;
         this.txtName.width = 100;
         this.txtName.height = 30;
         this.addChild(this.txtName);
         
         var test: egret.TextField = new egret.TextField();
         test.border = true;
-        test.borderColor = 0xfffff0;
-        test.x = stageW * 0.5 + 100;
-        test.y = stageH * 0.5 + 50;
+        test.borderColor = 0xfff000;
+        test.x = stageW * 0.5 - 50;
+        test.y = stageH * 0.5 + 220;
         test.touchEnabled = true;
         test.text = "开始测试";
+        test.textColor = 0x222222;
         test.width = 100;
         test.height = 30;
         test.textAlign = egret.HorizontalAlign.CENTER;
@@ -148,7 +149,7 @@ class Main extends egret.DisplayObjectContainer {
             uu += unicode;
         }
         //名字算法基础
-        return 1;
+        return uu % 6 + 2;
     }
 
     /**
