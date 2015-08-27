@@ -101,7 +101,7 @@ class Main extends egret.DisplayObjectContainer {
         this.txtName.x = stageW * 0.5 - 50;
         this.txtName.y = stageH * 0.5 + 100;
         this.txtName.width = 100;
-        this.txtName.height = 30;
+        this.txtName.height = 40;
         this.addChild(this.txtName);
         
         var test: egret.TextField = new egret.TextField();
