@@ -71,6 +71,8 @@ class Main extends egret.DisplayObjectContainer {
         }
     }
     
+    public result: ResultPanel;
+    public share: SharePanel;
     private txtName: egret.TextField;
     
     /**
@@ -94,44 +96,43 @@ class Main extends egret.DisplayObjectContainer {
         txtTip.size = 20;
         this.addChild(txtTip);*/
         
+        var inputBg:egret.Bitmap = new egret.Bitmap();
+        inputBg.x = 135;
+        inputBg.y = 515;
+        inputBg.texture = RES.getRes("input_box_png");
+        this.addChild(inputBg);
+        
         this.txtName = new egret.TextField();
         this.txtName.type = egret.TextFieldType.INPUT;
-        this.txtName.border = true;
+        //this.txtName.border = true;
         this.txtName.borderColor = 0xfff000;
-        this.txtName.x = stageW * 0.5 - 50;
-        this.txtName.y = stageH * 0.5 + 100;
-        this.txtName.width = 100;
-        this.txtName.height = 40;
+        this.txtName.x = 135;
+        this.txtName.y = 515;
+        this.txtName.width = 220;
+        this.txtName.height = 50;
         this.addChild(this.txtName);
         
-        var test: egret.TextField = new egret.TextField();
-        test.border = true;
-        test.borderColor = 0xff0000;
-        test.x = stageW * 0.5 - 60;
-        test.y = stageH * 0.5 + 220;
+        var test: egret.Bitmap = new egret.Bitmap();
+        test.x = 188;
+        test.y = 600;
+        test.texture = RES.getRes("start_test_png");
         test.touchEnabled = true;
-        //test.text = "开始测试";
-        test.textColor = 0x222222;
-        test.width = 125;
-        test.height = 45;
-        test.textAlign = egret.HorizontalAlign.CENTER;
-        test.verticalAlign = egret.VerticalAlign.MIDDLE;
-        test.size = 20;
         test.addEventListener(egret.TouchEvent.TOUCH_TAP,this.onTest, this);
         this.addChild(test);
+        
+        this.result = new ResultPanel();
+        this.addChild(this.result);
+        this.result.visible = false;
+        
+        this.share = new SharePanel();
+        this.share.visible = false;
+        this.addChild(this.share);
     }
 
-    private result: ResultPanel;
-    
     private onTest(evt: egret.TouchEvent): void
     {
         if(this.txtName.text == '' || this.txtName.text == null) return;
         console.log("test text clicked!");
-        if(this.result == null)
-        {
-            this.result = new ResultPanel();
-            this.addChild(this.result);
-        }
         var r:number = this.executeAlgorithm(this.txtName.text);
         this.result.setResult(r);
         this.result.visible = true;
@@ -152,47 +153,6 @@ class Main extends egret.DisplayObjectContainer {
         return uu % 6 + 2;
     }
 
-    /**
-     * 描述文件加载成功，开始播放动画
-     * Description file loading is successful, start to play the animation
-     */
-    private startAnimation(result:Array<any>):void {
-        var self:any = this;
-
-        var parser:egret.HtmlTextParser = new egret.HtmlTextParser();
-        var textflowArr:Array<Array<egret.ITextElement>> = [];
-        for (var i:number = 0; i < result.length; i++) {
-            textflowArr.push(parser.parser(result[i]));
-        }
-
-        var textfield:egret.TextField = self.textfield;
-        var count:number = -1;
-        var change:Function = function () {
-            count++;
-            if (count >= textflowArr.length) {
-                count = 0;
-            }
-            var lineArr = textflowArr[count];
-
-            self.changeDescription(textfield, lineArr);
-
-            var tw = egret.Tween.get(textfield);
-            tw.to({"alpha": 1}, 200);
-            tw.wait(2000);
-            tw.to({"alpha": 0}, 200);
-            tw.call(change, self);
-        };
-
-        change();
-    }
-
-    /**
-     * 切换描述内容
-     * Switch to described content
-     */
-    private changeDescription(textfield:egret.TextField, textFlow:Array<egret.ITextElement>):void {
-        textfield.textFlow = textFlow;
-    }
 }
 
 
