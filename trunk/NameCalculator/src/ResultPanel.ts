@@ -16,13 +16,38 @@ class ResultPanel extends egret.Sprite{
         g.drawRect(0, 0, 480, 800);
         g.endFill();
         
-        this.touchEnabled = true;
-        this.addEventListener(egret.TouchEvent.TOUCH_TAP,this.onTouch,this);
+        if(this.icon == null) {
+            this.icon = new egret.Bitmap();
+            this.icon.anchorX = this.icon.anchorY = 0;
+            this.addChild(this.icon);
+        }
+        
+        var again: egret.Bitmap = new egret.Bitmap();
+        again.x = 40;
+        again.y = 690;
+        again.texture = RES.getRes("again_png");
+        again.touchEnabled = true;
+        again.addEventListener(egret.TouchEvent.TOUCH_TAP,this.onTouch, this);
+        this.addChild(again);
+        
+        var share: egret.Bitmap = new egret.Bitmap();
+        share.x = 280;
+        share.y = 690;
+        share.texture = RES.getRes("share_png");
+        share.touchEnabled = true;
+        share.addEventListener(egret.TouchEvent.TOUCH_TAP,this.onShare, this);
+        this.addChild(share);
 	}
 	
     private onTouch(evt: egret.TouchEvent): void
     {
         this.visible = false;
+    }
+    
+    private onShare(evt: egret.TouchEvent): void
+    {
+        var main: Main = <Main>this.parent;
+        main.share.visible = true;
     }
 	
     public setResult(result: number): void

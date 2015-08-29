@@ -1,45 +1,68 @@
 {
-	"resources": [
-		{
-			"name": "1",
-			"type": "image",
-			"url": "assets/1.jpg"
-		},
-		{
-			"name": "2",
-			"type": "image",
-			"url": "assets/2.jpg"
-		},
-		{
-			"name": "3",
-			"type": "image",
-			"url": "assets/3.jpg"
-		},
-		{
-			"name": "4",
-			"type": "image",
-			"url": "assets/4.jpg"
-		},
-		{
-			"name": "5",
-			"type": "image",
-			"url": "assets/5.jpg"
-		},
-		{
-			"name": "6",
-			"type": "image",
-			"url": "assets/6.jpg"
-		},
-		{
-			"name": "7",
-			"type": "image",
-			"url": "assets/7.jpg"
-		}
-	],
-	"groups": [
-		{
-			"name": "preload",
-			"keys": "1,2,3,4,5,6,7"
-		}
-	]
+	"groups":[
+	{
+		"keys":"1,2,3,4,5,6,7,start_test_png,again_png,input_box_png,share_png,share_tips_png",
+		"name":"preload"
+	}],
+	"resources":[
+	{
+		"name":"1",
+		"type":"image",
+		"url":"assets/1.jpg"
+	},
+	{
+		"name":"2",
+		"type":"image",
+		"url":"assets/2.jpg"
+	},
+	{
+		"name":"3",
+		"type":"image",
+		"url":"assets/3.jpg"
+	},
+	{
+		"name":"4",
+		"type":"image",
+		"url":"assets/4.jpg"
+	},
+	{
+		"name":"5",
+		"type":"image",
+		"url":"assets/5.jpg"
+	},
+	{
+		"name":"6",
+		"type":"image",
+		"url":"assets/6.jpg"
+	},
+	{
+		"name":"7",
+		"type":"image",
+		"url":"assets/7.jpg"
+	},
+	{
+		"name":"start_test_png",
+		"type":"image",
+		"url":"assets/start_test.png"
+	},
+	{
+		"name":"again_png",
+		"type":"image",
+		"url":"assets/again.png"
+	},
+	{
+		"name":"input_box_png",
+		"type":"image",
+		"url":"assets/input_box.png"
+	},
+	{
+		"name":"share_png",
+		"type":"image",
+		"url":"assets/share.png"
+	},
+	{
+		"name":"share_tips_png",
+		"type":"image",
+		"url":"assets/share_tips.png"
+	}]
 }
