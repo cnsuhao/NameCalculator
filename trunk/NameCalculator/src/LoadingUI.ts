@@ -47,6 +47,7 @@ class LoadingUI extends egret.Sprite {
 
     public setProgress(current, total):void {
         //显示进度
-        this.textField.text = "Loading..." + current + "/" + total;
+        var percent:number = current / total * 100;
+        this.textField.text = "Loading..." + Math.floor(percent) + "%";
     }
 }
