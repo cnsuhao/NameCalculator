@@ -96,26 +96,33 @@ class Main extends egret.DisplayObjectContainer {
         txtTip.size = 20;
         this.addChild(txtTip);*/
         
+        //输入框背景
         var inputBg:egret.Bitmap = new egret.Bitmap();
-        inputBg.x = 135;
-        inputBg.y = 515;
         inputBg.texture = RES.getRes("input_box_png");
+        inputBg.x = (this.width - inputBg.texture.textureWidth) * 0.5;
+        inputBg.y = 600;
         this.addChild(inputBg);
         
+        //输入框
         this.txtName = new egret.TextField();
         this.txtName.type = egret.TextFieldType.INPUT;
+        this.txtName.textColor = 0xff0000;
         //this.txtName.border = true;
-        this.txtName.borderColor = 0xfff000;
-        this.txtName.x = 135;
-        this.txtName.y = 515;
-        this.txtName.width = 220;
-        this.txtName.height = 50;
+        //this.txtName.borderColor = 0xff0000;
+        this.txtName.text = "填写你的姓名";
+        this.txtName.x = inputBg.x;
+        this.txtName.y = inputBg.y;
+        this.txtName.width = inputBg.texture.textureWidth;
+        this.txtName.height = inputBg.texture.textureHeight;
         this.addChild(this.txtName);
+        this.txtName.touchEnabled = true;
+        this.txtName.addEventListener(egret.TouchEvent.TOUCH_TAP,this.onInputTouch,this);
         
+        //开始测试
         var test: egret.Bitmap = new egret.Bitmap();
-        test.x = 188;
-        test.y = 600;
         test.texture = RES.getRes("start_test_png");
+        test.x = (this.width - test.texture.textureWidth) * 0.5;
+        test.y = 700;
         test.touchEnabled = true;
         test.addEventListener(egret.TouchEvent.TOUCH_TAP,this.onTest, this);
         this.addChild(test);
@@ -129,6 +136,11 @@ class Main extends egret.DisplayObjectContainer {
         this.addChild(this.share);
     }
 
+    private onInputTouch(event: egret.TouchEvent): void
+    {
+        this.txtName.text = "";
+    }
+    
     private onTest(evt: egret.TouchEvent): void
     {
         if(this.txtName.text == '' || this.txtName.text == null) return;
@@ -136,7 +148,7 @@ class Main extends egret.DisplayObjectContainer {
         var r:number = this.executeAlgorithm(this.txtName.text);
         this.result.setResult(r);
         this.result.visible = true;
-        this.txtName.text = "";
+        this.txtName.text = "填写你的姓名";
     }
     
     private executeAlgorithm(text: string): number
@@ -150,7 +162,7 @@ class Main extends egret.DisplayObjectContainer {
             uu += unicode;
         }
         //名字算法基础
-        return uu % 6 + 2;
+        return uu % 5 + 2;
     }
 
 }
