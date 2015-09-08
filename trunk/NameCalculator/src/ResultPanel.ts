@@ -22,18 +22,21 @@ class ResultPanel extends egret.Sprite{
             this.addChild(this.icon);
         }
         
-        var again: egret.Bitmap = new egret.Bitmap();
+        /*var again: egret.Bitmap = new egret.Bitmap();
         again.x = 40;
         again.y = 690;
         again.texture = RES.getRes("again_png");
         again.touchEnabled = true;
         again.addEventListener(egret.TouchEvent.TOUCH_TAP,this.onTouch, this);
-        this.addChild(again);
+        this.addChild(again);*/
+        
+        this.touchEnabled = true;
+        this.addEventListener(egret.TouchEvent.TOUCH_TAP,this.onTouch, this);
         
         var share: egret.Bitmap = new egret.Bitmap();
-        share.x = 280;
-        share.y = 690;
         share.texture = RES.getRes("share_png");
+        share.x = (this.width - share.texture.textureWidth) * 0.5;
+        share.y = 690;
         share.touchEnabled = true;
         share.addEventListener(egret.TouchEvent.TOUCH_TAP,this.onShare, this);
         this.addChild(share);
