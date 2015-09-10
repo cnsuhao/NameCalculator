@@ -13,7 +13,7 @@ class SharePanel extends egret.Sprite{
         var g: egret.Graphics = this.graphics;
         g.clear();
         g.beginFill(0x000000,0.7);
-        g.drawRect(0, 0, 480, 800);
+        g.drawRect(0, 0, Globals.WIDTH, Globals.HEIGHT);
         g.endFill();
         
         var share: egret.Bitmap = new egret.Bitmap();
