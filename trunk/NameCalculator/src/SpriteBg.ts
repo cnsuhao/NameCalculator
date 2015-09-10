@@ -12,7 +12,7 @@ class SpriteBg extends egret.Sprite{
         g.clear();
         //g.lineStyle(1,0xff0000);
         g.beginFill(0x000000,1);
-        g.drawRect(0, 0, 480, 800);
+        g.drawRect(0, 0, Globals.WIDTH, Globals.HEIGHT);
         g.endFill();
         
         var bmp: egret.Bitmap = new egret.Bitmap();
